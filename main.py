@@ -1,13 +1,8 @@
 from cryptography.fernet import Fernet
-master_pwd = input("What is the master password?")
 from getpass import getpass
 
-def write_key():
-  key = Fernet.generate_key()
-  with open("key.key", "wb") as key_file:
-    key_file.write(key)
+main_pwd = input("What is the main password?")
     
-write_key()
 
 def view():
   with open('password.docx', 'r') as f:
@@ -17,7 +12,6 @@ def view():
 def add():
   name = input('Account name: ')
   pwd = getpass('Password: ')
-  
   with open('password.docx', 'a') as f:
     f.write(name + " and " + pwd + "\n")
     
